@@ -3408,6 +3408,10 @@ void keyboard(rfbBool down, rfbKeySym keysym, rfbClientPtr client) {
 	X_LOCK;
 
 	k = XKeysymToKeycode(dpy, (KeySym) keysym);
+    if(k == 94)
+    {
+        k = 59;
+    }
 
 	if (k == NoSymbol && add_keysyms && ! IsModifierKey(keysym)) {
 		int new_kc = add_keysym(keysym);
